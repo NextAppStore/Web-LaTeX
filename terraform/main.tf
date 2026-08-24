@@ -22,10 +22,14 @@ provider "openstack" {
 ############################
 
 locals {
-  app_name           = "web-latex"
-  flavor             = "gp1.small"
-  enable_floating_ip = true
-  key_pair           = ""
+  app_name = "web-latex"
+  flavor   = "gp1.small"
+
+  # False, because on this OpenStack currently a floating IP is not merely unnecessary
+  # here 
+  enable_floating_ip = false
+
+  key_pair = ""
 }
 
 data "openstack_images_image_v2" "image" {
