@@ -45,11 +45,14 @@ variable "network_uuid" {
 variable "floating_ip_pool" {
   description = "Name des External Networks für Floating IPs @openstack:floating_ip_pool:name"
   type        = string
-  default     = "DHBW"
+  default     = "DHBWV6"
 }
 
 variable "shared_secgroup_id" {
   description = "ID der gemeinsamen Security Group @openstack:security_group:id"
   type        = string
-  default     = "4ffaf007-df66-4250-9118-1bd99378d34a"
+  # appstore-deploy: SSH (22) + HTTP (80) + HTTPS (443) ingress v4+v6.
+  # Web-LaTeX is served over HTTP on port 80 (see outputs.tf), so an
+  # SSH-only security group doesn't fit here.
+  default = "5c0e96fb-bd1f-41b3-b400-deccf7712a80"
 }
