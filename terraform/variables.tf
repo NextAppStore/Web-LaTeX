@@ -1,5 +1,5 @@
 ############################
-# PLATFORM-injizierte Variablen (vom Worker automatisch gesetzt)
+# PLATFORM-injected variables (set automatically by the worker)
 ############################
 
 variable "users" {
@@ -16,7 +16,7 @@ variable "image_name" {
 }
 
 ############################
-# CONTRACT-Variablen (vom Deployer im AppStore konfiguriert)
+# CONTRACT variables (configured by the deployer in the AppStore)
 ############################
 
 variable "assignment_files" {
@@ -31,14 +31,14 @@ variable "assignment_files" {
 }
 
 ############################
-# BACKEND-Variablen (OpenStack-Infrastruktur)
+# BACKEND variables (OpenStack infrastructure)
 ############################
 
 variable "network_uuid" {
   description = "UUID des internen Netzwerks @openstack:network:id"
   type        = string
-  # DHBWV6: dual-stack (v4+v6 auf demselben Subnetz-Paar) — jede VM
-  # bekommt automatisch beide Fixed-IPs von Neutron.
+  # DHBWV6: dual-stack (v4+v6 on the same subnet pair) — every VM
+  # automatically gets both fixed IPs from Neutron.
   default = "9b579624-d844-4df3-b38d-89978b31d37d"
 }
 
